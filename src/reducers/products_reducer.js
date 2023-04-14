@@ -49,7 +49,7 @@ const products_reducer = (state, action) => {
     return {
       ...state,
       products_loading: false,
-      products_error: true
+      products_error: true,
     };
   }
 
