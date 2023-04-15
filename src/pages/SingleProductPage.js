@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useProductsContext } from '../context/products_context';
 import { single_product_url as url } from '../utils/constants';
@@ -28,13 +28,16 @@ const SingleProductPage = () => {
     fetchSingleProduct(`${url}${id}`);
   }, [id]);
 
+  const redirectHome = useCallback(() => {
+    history.push('/');
+  }, [history]);
+  
   useEffect(() => {
     if (error) {
-      setTimeout(() => {
-        history.push('/');
-      }, 3000);
+      const timeoutId = setTimeout(redirectHome, 3000);
+      return () => clearTimeout(timeoutId);
     }
-  }, [error]);
+  }, [error, redirectHome]);
 
   if (loading) {
     return <Loading />;
