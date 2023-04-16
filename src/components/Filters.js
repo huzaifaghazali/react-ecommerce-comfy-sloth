@@ -29,6 +29,7 @@ const Filters = () => {
     <Wrapper>
       <div className='content'>
         <h2>filters</h2>
+        {/* Search Input button */}
         <form onSubmit={(e) => e.preventDefault()}>
           <div className='form-control'>
             <input
@@ -40,6 +41,30 @@ const Filters = () => {
               onChange={updateFilters}
             />
           </div>
+
+          {/* Categories */}
+
+          <div className='form-control'>
+            <h5>category</h5>
+            <div>
+              {categories.map((categoryItem, index) => {
+                return (
+                  <button
+                    key={index}
+                    onClick={updateFilters}
+                    type='button'
+                    name='category'
+                    className={`${
+                      category === categoryItem.toLowerCase() ? 'active' : null
+                    }`}
+                  >
+                    {categoryItem}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
         </form>
       </div>
     </Wrapper>

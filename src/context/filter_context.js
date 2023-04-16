@@ -62,19 +62,13 @@ export const FilterProvider = ({ children }) => {
   };
 
   // ------- Update and clear filters ------- //
-  // const updateFilters = (e) => {
-  //   // const { name, value } = e.target;
-  //   let name = e.target.name
-  //   let value = e.target.value
-  //   console.log(name, value);
-
-  //   dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
-
-  // };
-
 
   const updateFilters = (e) => {
-   const {name, value} = e.target;
+   let {name, value} = e.target;
+
+   if(name === 'category') {
+    value = e.target.textContent;
+   }
 
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } })
   }
