@@ -25,8 +25,8 @@ const initialState = {
     min_price: 0,
     max_price: 0,
     price: 0,
-    shipping: false
-  }
+    shipping: false,
+  },
 };
 
 const FilterContext = createContext();
@@ -40,21 +40,46 @@ export const FilterProvider = ({ children }) => {
   }, [products]);
 
   useEffect(() => {
+    dispatch({ type: FILTER_PRODUCTS });
     dispatch({ type: SORT_PRODUCTS });
-  }, [products, state.sort])
+  }, [products, state.sort, state.filters]);
 
+  // ------- Setting the Product View ------- //
+  // Grid View
   const setGridView = () => {
     dispatch({ type: SET_GRIDVIEW });
   };
 
+  // List View
   const setListView = () => {
     dispatch({ type: SET_LISTVIEW });
   };
 
+  // ------- Update the value of Select -------
   const updateSort = (event) => {
     const { value } = event.target;
     dispatch({ type: UPDATE_SORT, payload: value });
   };
+
+  // ------- Update and clear filters ------- //
+  // const updateFilters = (e) => {
+  //   // const { name, value } = e.target;
+  //   let name = e.target.name
+  //   let value = e.target.value
+  //   console.log(name, value);
+
+  //   dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
+
+  // };
+
+
+  const updateFilters = (e) => {
+   const {name, value} = e.target;
+
+    dispatch({ type: UPDATE_FILTERS, payload: { name, value } })
+  }
+
+  const clearFilters = () => {};
 
   return (
     <FilterContext.Provider
@@ -63,6 +88,8 @@ export const FilterProvider = ({ children }) => {
         setGridView,
         setListView,
         updateSort,
+        updateFilters,
+        clearFilters,
       }}
     >
       {children}
