@@ -6,4 +6,17 @@ export const formatPrice = (number) => {
   
 };
 
-export const getUniqueValues = () => {};
+export const getUniqueValues = (data, type) => {
+
+  // create the array from the data(array of objects) of given type
+  let unique = data.map((item) => item[type])
+  console.log(unique);
+  
+ // flat the array of colors i.e removes the nesting
+  if (type === 'colors') {
+    unique = unique.flat();
+  }
+
+ // return only the unique values
+  return ['all', ...new Set(unique)];
+}
