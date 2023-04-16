@@ -10,22 +10,36 @@ import {
 } from '../actions';
 
 const filter_reducer = (state, action) => {
+
+  //-------  Loading the Products ------- 
   if (action.type === LOAD_PRODUCTS) {
+    let maxPrice = action.payload.map((p) => p.price);
+    maxPrice = Math.max(...maxPrice);
+    
     return {
       ...state,
       all_products: [...action.payload],
       filtered_products: [...action.payload],
+      filters: {
+        ...state.filters,
+        max_price: maxPrice,
+        price: maxPrice
+      }
     };
   }
 
+  //------- Setting the Product View -------  //
+  // Set Grid View
   if (action.type === SET_GRIDVIEW) {
     return { ...state, grid_view: true };
   }
 
+  // Set List View
   if (action.type === SET_LISTVIEW) {
     return { ...state, grid_view: false };
   }
 
+  //------- Update the Select Value -------  //
   if (action.type === UPDATE_SORT) {
     return {
       ...state,
@@ -33,6 +47,7 @@ const filter_reducer = (state, action) => {
     };
   }
 
+  // ------- Sort the Products by Given value ------- //
   if (action.type === SORT_PRODUCTS) {
     const { sort, filtered_products } = state;
 
