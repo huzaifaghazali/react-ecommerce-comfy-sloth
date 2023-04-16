@@ -64,14 +64,16 @@ export const FilterProvider = ({ children }) => {
   // ------- Update and clear filters ------- //
 
   const updateFilters = (e) => {
-   let {name, value} = e.target;
+    let { name, value } = e.target;
 
-   if(name === 'category') {
-    value = e.target.textContent;
-   }
+    console.log(name, value);
+    if (name === 'category') {
+      value = e.target.textContent;
+    }
 
-    dispatch({ type: UPDATE_FILTERS, payload: { name, value } })
-  }
+
+    dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
+  };
 
   const clearFilters = () => {};
 
