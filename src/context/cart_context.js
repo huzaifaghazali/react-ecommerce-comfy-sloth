@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useReducer } from 'react'
+import React, { useEffect, useContext, useReducer, createContext } from 'react'
 import reducer from '../reducers/cart_reducer'
 import {
   ADD_TO_CART,
@@ -8,11 +8,17 @@ import {
   COUNT_CART_TOTALS,
 } from '../actions'
 
-const initialState = {}
+const initialState = {
+  cart: [],
+  total_items: 0,
+  total_amount: 0,
+  shipping_fee: 534
+}
 
-const CartContext = React.createContext()
+const CartContext = createContext()
 
 export const CartProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState)
   return (
     <CartContext.Provider value='cart context'>{children}</CartContext.Provider>
   )
