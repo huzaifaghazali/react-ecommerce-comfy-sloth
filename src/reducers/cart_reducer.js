@@ -7,6 +7,7 @@ import {
 } from '../actions';
 
 const cart_reducer = (state, action) => {
+  // ------ Adding item into the cart ------
   if (action.type === ADD_TO_CART) {
     const { id, color, amount, product } = action.payload;
     const tempItem = state.cart.find((i) => i.id === id + color);
@@ -41,6 +42,18 @@ const cart_reducer = (state, action) => {
       };
       return { ...state, cart: [...state.cart, newItem] };
     }
+  }
+
+  // ------ Removing and Clearing the cart ------
+  // Removing the item from the cart
+  if (action.type === REMOVE_CART_ITEM) {
+    const tempCart = state.cart.filter((item) => item.id !== action.payload);
+    return { ...state, cart: tempCart };
+  }
+
+  // Clearing the whole cart
+  if (action.type === CLEAR_CART) {
+    return { ...state, cart: [] };
   }
 
   throw new Error(`No Matching "${action.type}" - action type`);
