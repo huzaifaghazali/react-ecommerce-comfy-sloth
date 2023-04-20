@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import logo from '../assets/logo.svg';
 import { FaBars } from 'react-icons/fa';
@@ -10,6 +10,9 @@ import { useUserContext } from '../context/user_context';
 
 const Nav = () => {
   const { openSidebar } = useProductsContext();
+
+  const { myUser } = useUserContext();
+
   return (
     <NavContainer>
       <div className='nav-center'>
@@ -30,7 +33,13 @@ const Nav = () => {
                 <Link to={url}>{text}</Link>
               </li>
             );
-          })}
+          })} {
+            myUser && (
+              <li>
+                <Link to='/checkout'>checkout</Link>
+              </li>
+            )
+          }
         </ul>
         <CartButtons />
       </div>
