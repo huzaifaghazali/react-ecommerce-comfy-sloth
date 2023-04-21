@@ -23,7 +23,7 @@ const StripeCheckout = () => {
       <CheckoutForm />
     </Wrapper>
   )
-}
+} 
 
 const Wrapper = styled.section`
   form {

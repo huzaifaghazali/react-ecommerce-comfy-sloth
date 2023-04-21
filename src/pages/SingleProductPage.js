@@ -24,15 +24,15 @@ const SingleProductPage = () => {
     fetchSingleProduct,
   } = useProductsContext();
 
-  const memoizedFetchSingleProduct = useCallback(
-    () => fetchSingleProduct(`${url}${id}`),
-    [fetchSingleProduct, id]
-  );
+  // const memoizedFetchSingleProduct = useCallback(
+  //   () => fetchSingleProduct(`${url}${id}`),
+  //   [fetchSingleProduct, id]
+  // );
 
   useEffect(() => {
-    // fetchSingleProduct(`${url}${id}`);
-    memoizedFetchSingleProduct();
-  }, [memoizedFetchSingleProduct]);
+    fetchSingleProduct(`${url}${id}`);
+    // memoizedFetchSingleProduct();
+  }, [id]);
 
   const redirectHome = useCallback(() => {
     history.push('/');
