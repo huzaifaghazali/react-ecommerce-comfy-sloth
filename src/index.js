@@ -11,11 +11,6 @@ import { Auth0Provider } from '@auth0/auth0-react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-console.log('domain', process.env.REACT_APP_AUTH_DOMAIN)
-console.log('clientId', process.env.REACT_APP_AUTH_CLIENT)
-console.log('public', process.env.REACT_APP_STRIPE_PUBLIC_KEY)
-console.log('secret key', process.env.REACT_APP_STRIPE_SECRET_KEY)
-
 root.render(
   <Auth0Provider
     domain={process.env.REACT_APP_AUTH_DOMAIN}
