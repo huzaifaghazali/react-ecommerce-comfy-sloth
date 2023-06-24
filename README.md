@@ -75,3 +75,19 @@ The application can be deployed to any hosting service of your choice. Here's an
 
 # Contributing
 Contributions are welcome! If you have any ideas or suggestions, please open an issue or submit a pull request.
+
+# Pictures
+
+   ![1](https://github.com/huzaifaghazali/react-ecommerce-comfy-sloth/assets/63412385/691bdbf2-b831-4049-96d3-592c7ee23aec)
+
+   ![2](https://github.com/huzaifaghazali/react-ecommerce-comfy-sloth/assets/63412385/997e4d7e-c74b-4bd0-9e9a-dc4560f0220d)
+
+   ![3](https://github.com/huzaifaghazali/react-ecommerce-comfy-sloth/assets/63412385/d224421a-60e6-44c4-bee4-fa6202a59b6a)
+
+   ![4](https://github.com/huzaifaghazali/react-ecommerce-comfy-sloth/assets/63412385/2583d2a0-3aae-4151-be79-def86c10de47)
+
+   ![5](https://github.com/huzaifaghazali/react-ecommerce-comfy-sloth/assets/63412385/1f7fb93e-4ba3-4bbe-a32e-ddcc87a2ab6e)
+
+   ![6](https://github.com/huzaifaghazali/react-ecommerce-comfy-sloth/assets/63412385/acddb9ef-e2a7-4656-8c9d-c1d0dde9ed8e)
+
+   ![7](https://github.com/huzaifaghazali/react-ecommerce-comfy-sloth/assets/63412385/e45fa1f9-2c57-4d6a-94d9-21db453854f8)
